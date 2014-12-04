@@ -49,6 +49,31 @@ public class RemoveNthNodeFromEndOfList {
         }
         return head;
     }
+    
+/**
+ * @crystal
+ * Created by crystal on 2014-12-04  i think this is better @sutao what do you think ?
+ */
+
+    public  ListNode removeNthFromEnd_crystal(ListNode head, int n) {
+	   ListNode target = new ListNode(0);
+	   target.next = head;
+	   ListNode slow = target;
+	   ListNode fast = target;
+	   int count = 0;
+	        
+	   while(fast.next != null) {
+	           if(count >= n)
+	               slow = slow.next;
+	           fast = fast.next;
+	           count++;
+	    }
+	    if(slow.next != null) {
+	           slow.next = slow.next.next;
+	       }
+	    return target.next;
+	 }
+
 
     class ListNode {
         int val;
